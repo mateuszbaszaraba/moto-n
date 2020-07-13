@@ -32,6 +32,9 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                     </div>
                 </li>
+                <span class="navbar-text">
+                    Funds: {{ funds }}
+                </span>
         </div>
 
     </nav>
@@ -42,6 +45,11 @@
         data() {
             return {
                 isDropdownOpen: false
+            }
+        },
+        computed: {
+            funds() {
+                return this.$store.getters.funds
             }
         }
     }

@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="card border-success mb-3" style="width: 18rem;">
+        <div class="card border-danger mb-3" style="width: 18rem;">
             <div class="card-header">{{car.name}}</div>
-            <div class="card-body text-success">
-                <h5 class="card-title">{{car.price}}</h5>
+            <div class="card-body text-danger">
+                <h5 class="card-title">{{car.price}} | Quantity: {{car.quantity}}</h5>
                 <input type="number" class="form-control" v-model="quantity" />
-                <button class="btn btn-success" @click="buyCar">Buy</button>
+                <button class="btn btn-danger" @click="sellCar">Sell</button>
             </div>
         </div>
     </div>
@@ -20,14 +20,14 @@
             }
         },
         methods: {
-            buyCar() {
+            sellCar() {
                 const order = {
                     carId: this.car.id,
                     carPrice: this.car.price,
                     quantity: this.quantity,
                     total: this.car.price * this.quantity
                 }
-                this.$store.dispatch('buyCar', order);
+                this.$store.dispatch('sellCar', order);
                 this.quantity = 0
             }
         }

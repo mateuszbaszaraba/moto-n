@@ -1,5 +1,6 @@
 const state = {
-    cars: []
+    cars: [],
+    funds: 10000
 }
 
 const mutations = {
@@ -13,12 +14,25 @@ const mutations = {
                 quantity: quantity
             })
         }
+        state.funds -= quantity * carPrice
+    },
+    'SELL_CARS' (state, {carId, quantity, carPrice}) {
+        const record = state.cars.find(element => element.id == carId);
+        if(record.quantity > quantity) {
+            record.quantity -= quantity
+        } else {
+            state.cars.splice(state.cars.indexOf(record), 1)
+        }
+        state.funds += quantity * carPrice
     }
 }
 
 const actions = {
     buyCar: ({commit}, order) => {
         commit('BUY_CARS', order)
+    },
+    sellCar: ({commit}, order) => {
+        commit('SELL_CARS', order)
     }
 }
 
@@ -33,6 +47,9 @@ const getters = {
                 price: record.price
             }
         })
+    },
+    funds(state) {
+        return state.funds
     }
 }
 
