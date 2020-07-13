@@ -3,7 +3,7 @@
         <div class="card border-success mb-3" style="width: 18rem;">
             <div class="card-header">{{car.name}}</div>
             <div class="card-body text-success">
-                <h5 class="card-title">{{car.price}}</h5>
+                <h5 class="card-title">{{car.price | currency}}</h5>
                 <input type="number" class="form-control" v-model="quantity" />
                 <button class="btn btn-success" @click="buyCar">Buy</button>
             </div>
