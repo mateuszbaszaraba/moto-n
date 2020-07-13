@@ -1,6 +1,6 @@
 <template>
-    <div class="row d-flex justify-content-around">        
-        <app-car v-for="car in cars" :car="car" :key="car.id"></app-car>
+    <div class="row">        
+        <app-car v-for="car in cars" :car="car" :key="car.id" class="mx-2"></app-car>
     </div>
 </template>
 

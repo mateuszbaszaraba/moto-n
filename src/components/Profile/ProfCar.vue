@@ -4,8 +4,10 @@
             <div class="card-header">{{car.name}}</div>
             <div class="card-body text-danger">
                 <h5 class="card-title">{{car.price | currency}} | Quantity: {{car.quantity}}</h5>
-                <input type="number" class="form-control" v-model="quantity" />
-                <button class="btn btn-danger" @click="sellCar">Sell</button>
+                <div class="form-inline">
+                    <input type="number" class="form-control w-75 mr-2" v-model="quantity" />
+                    <button class="btn btn-danger" @click="sellCar">Sell</button>
+                </div>
             </div>
         </div>
     </div>
